@@ -1,0 +1,62 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="ThePlanets.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+    <link rel="icon" type="image/x-icon" href="pics/final.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <div class="topnav">
+        <a href="Home.aspx"><i class="fa fa-fw fa-home"></i></a>
+        <div class="dropdown">
+            <button class="dropbtn">
+                planets<i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="Sun.aspx">Sun</a>
+                <a href="Mercury.aspx">Mercury</a>
+                <a href="Venus.aspx">Venus</a>
+                <a href="Earth.aspx">Earth</a>
+                <a href="Mars.aspx">Mars</a>
+                <a href="Jupiter.aspx">Jupiter</a>
+                <a href="Saturn.aspx">Saturn</a>
+                <a href="Uranus.aspx">Uranus</a>
+                <a href="Neptune.aspx">Neptune</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">more 
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="Astroids.aspx">astroids</a>
+                <a href="Missions.aspx">missions</a>
+                <a href="Equipment.aspx">space equipment</a>
+            </div>
+        </div>
+        <% /* If the user is the admin or regular user then the links to their pages (User Page or Admin Page) will appear in the navigator bar */ if (Session["admin"] == null && Session["user"] == null) { %>
+        <a href="SignUp.aspx">Sign Up</a>
+        <a href="login.aspx">Log In</a>
+        <% } %>
+        <% if (Session["admin"] != null)
+            { %>
+        <a href="AdminPage.aspx"><i class="fa fa-fw fa-user"></i> Admin</a>
+        <% } %>
+        <% if (Session["user"] != null)
+            {%>
+        <a href="UserPage.aspx"><i class="fa fa-fw fa-user"></i> Profile</a>
+        <% } %>
+    </div>
+    <hr />
+
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    </asp:ContentPlaceHolder>
+</body>
+</html>
