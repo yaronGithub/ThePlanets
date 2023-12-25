@@ -9,7 +9,7 @@
                 loginForm.userName.focus();
                 return false;
             }
-            if (loginForm.userName.value.length > 8) {
+            if (loginForm.userName.value.length > 40) {
                 alert("Your name can't be over 8 characters.");
                 loginForm.userName.focus();
                 return false;
